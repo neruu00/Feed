@@ -1,0 +1,15 @@
+[
+  {
+    "id": "bluearchive-kr-notice",
+    "type": "nexon-forum",
+    "name": "블루 아카이브 공지사항",
+    "alias": "bluearchive",
+    "board": "1018"
+  },
+  {
+    "id": "bluearchive-kr-youtube",
+    "type": "youtube",
+    "name": "블루 아카이브 유튜브",
+    "channelId": "UCj0iColXMAjPA92rH-AXVGQ"
+  }
+]

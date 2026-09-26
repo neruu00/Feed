@@ -1,0 +1,21 @@
+name: keepalive
+
+# 공개 저장소는 60일 동안 활동이 없으면 예약 작업이 꺼진다. 한 달에 한 번 빈 커밋을 남긴다.
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit --allow-empty -m 'chore: keepalive'
+          git push

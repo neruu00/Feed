@@ -1,0 +1,48 @@
+name: feed
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 이전 실행이 배포 중이면 기다렸다가 이어서 한다
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - id: build
+        run: node scripts/build-feed.mjs --out public/feed.json --previous https://neruu00.github.io/Feed/feed.json
+
+      # 내용이 그대로면 배포하지 않는다 (push와 수동 실행은 항상 배포)
+      - if: steps.build.outputs.changed == 'true' || github.event_name != 'schedule'
+        uses: actions/configure-pages@v5
+
+      - if: steps.build.outputs.changed == 'true' || github.event_name != 'schedule'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - if: steps.build.outputs.changed == 'true' || github.event_name != 'schedule'
+        id: deployment
+        uses: actions/deploy-pages@v4
