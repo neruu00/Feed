@@ -7,6 +7,20 @@
     "board": "1018"
   },
   {
+    "id": "bluearchive-kr-update",
+    "type": "nexon-forum",
+    "name": "블루 아카이브 업데이트",
+    "alias": "bluearchive",
+    "board": "1076"
+  },
+  {
+    "id": "bluearchive-kr-event",
+    "type": "nexon-forum",
+    "name": "블루 아카이브 진행 이벤트",
+    "alias": "bluearchive",
+    "board": "1039"
+  },
+  {
     "id": "bluearchive-kr-youtube",
     "type": "youtube",
     "name": "블루 아카이브 유튜브",
