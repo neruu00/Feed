@@ -1,6 +1,6 @@
-# Petit Arona Feed
+# Tiny Mate Feed
 
-GitHub Actions가 10분마다 `sources.json`의 소스를 한 번씩 읽어 `feed.json` 하나로 합친 뒤 GitHub Pages에 배포한다. 앱은 [feed.json](https://neruu00.github.io/Feed/feed.json)만 읽는다.
+Tiny Mate 앱이 보여 줄 최신 소식을 여러 소스에서 모아 `feed.json` 하나로 만든다. 소스는 앞으로 늘어날 수 있다. GitHub Actions가 10분마다 피드를 갱신해 GitHub Pages에 배포하며, 앱은 [feed.json](https://neruu00.github.io/Feed/feed.json)만 읽는다.
 
 ## 중계하는 이유
 
@@ -10,7 +10,7 @@ GitHub Actions가 10분마다 `sources.json`의 소스를 한 번씩 읽어 `fee
 
 ## 소스
 
-`sources.json`은 넥슨 게시판(`nexon-forum`, `alias`, `board`)과 유튜브 채널(`youtube`, `channelId`)을 지원한다. 현재 소스는 블루 아카이브 공지사항(`forum.nexon.com`, `bluearchive`, 게시판 `1018`)과 블루 아카이브 유튜브(`UCj0iColXMAjPA92rH-AXVGQ`)다.
+`sources.json`은 넥슨 커뮤니티 게시판(`nexon-forum`: `alias`, `board`)과 유튜브 채널(`youtube`: `channelId`)을 지원한다. 등록된 소스는 `sources.json`을 본다.
 
 소스를 추가할 때 `sources.json` 배열에 다음 항목을 넣는다.
 
@@ -19,7 +19,7 @@ GitHub Actions가 10분마다 `sources.json`의 소스를 한 번씩 읽어 `fee
   "id": "example-youtube",
   "type": "youtube",
   "name": "예시 채널",
-  "channelId": "UCj0iColXMAjPA92rH-AXVGQ"
+  "channelId": "UCxxxxxxxxxxxxxxxxxxxxxx"
 }
 ```
 

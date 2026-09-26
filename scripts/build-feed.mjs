@@ -8,7 +8,7 @@
 import { readFile, writeFile, mkdir, appendFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 
-const USER_AGENT = 'PetitAronaFeed/1.0 (+https://github.com/neruu00/Feed)';
+const USER_AGENT = 'TinyMateFeed/1.0 (+https://github.com/neruu00/Feed)';
 const ITEMS_PER_SOURCE = 20;
 const TIMEOUT_MS = 20_000;
 
